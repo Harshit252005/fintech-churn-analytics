@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import plotly.express as px
 
@@ -37,11 +38,12 @@ col4.metric("High-Risk VIP Accounts", f"{vip_at_risk}")
 
 st.markdown("---")
 
-# Dashboard Sections
-tab1, tab2, tab3 = st.tabs([
+# Dashboard Sections (Added Tab 4 for Tableau BI)
+tab1, tab2, tab3, tab4 = st.tabs([
     "📊 Executive Summary & RFM", 
     "📈 Product Performance & Recency", 
-    "🎯 High-Risk Account Intervention"
+    "🎯 High-Risk Account Intervention",
+    "📈 Interactive Tableau BI Dashboard"
 ])
 
 with tab1:
@@ -109,4 +111,22 @@ with tab3:
         },
         use_container_width=True,
         hide_index=True
+    )
+
+with tab4:
+    st.subheader("Executive Tableau BI Dashboard")
+    st.caption("Embedded interactive visualization built on Tableau Public.")
+    
+    # PASTE YOUR TABLEAU SHARE LINK BELOW (Ensure it ends with ?:showVizHome=no&:embed=true)
+    tableau_url = "https://public.tableau.com/views/FinTechRevenueRiskDashboard/Dashboard1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+    
+    components.html(
+        f"""
+        <iframe src="{tableau_url}"
+                width="100%" 
+                height="750" 
+                frameborder="0">
+        </iframe>
+        """,
+        height=770
     )
