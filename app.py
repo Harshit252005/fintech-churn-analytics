@@ -118,7 +118,7 @@ with tab4:
     st.caption("Embedded interactive visualization built on Tableau Public.")
     
     # PASTE YOUR TABLEAU SHARE LINK BELOW (Ensure it ends with ?:showVizHome=no&:embed=true)
-    tableau_url = "https://public.tableau.com/views/FinTechRevenueRiskDashboard/Dashboard1?:language=en-GB&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+    tableau_url = "https://public.tableau.com/views/FinTechRevenueRiskDashboard/Dashboard1?:showVizHome=no&:embed=true"
     
     components.html(
         f"""
